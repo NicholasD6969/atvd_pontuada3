@@ -1,0 +1,21 @@
+.header {
+  background-color: #004aad;
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;  /* Centraliza o conteúdo */
+  align-items: center;
+}
+
+.header .brand img {
+  max-width: 120px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.header .brand h1 {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}

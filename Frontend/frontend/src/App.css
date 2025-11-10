@@ -1,0 +1,48 @@
+.header {
+  background-color: #004aad; /* Azul principal */
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.header_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px; /* Espaço entre logo e menu */
+}
+
+.header .brand img {
+  width: 100px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.header .brand span {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Menu de navegação */
+.nav {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.nav a:hover {
+  color: #a3ffcf; /* Verde claro */
+  text-decoration: underline;
+}
