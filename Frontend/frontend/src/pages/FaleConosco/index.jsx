@@ -3,7 +3,27 @@ import './style.css';
 function FaleConosco() {
   function handleSubmit(event) {
     event.preventDefault();
-    alert('Mensagem enviada com sucesso!');
+
+    const formData = {
+      nome: event.target.nome.value,
+      email: event.target.email.value,
+      telefone: event.target.telefone.value,
+      mensagem: event.target.mensagem.value
+    };
+
+    fetch('http://localhost:3000/api/fale-conosco', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    })
+      .then(res => res.json())
+      .then(data => {
+        alert(data.message);
+        event.target.reset();
+      })
+      .catch(() => {
+        alert('Erro ao enviar a mensagem.');
+      });
   }
 
   return (
@@ -13,24 +33,30 @@ function FaleConosco() {
 
       <form className="form" onSubmit={handleSubmit}>
         <div className="grid cols-3">
+
           <label className="field">
             <span>Nome:</span>
-            <input type="text" placeholder="Seu nome" required />
+            <input name="nome" type="text" placeholder="Seu nome" required />
           </label>
 
           <label className="field">
             <span>Email:</span>
-            <input type="email" placeholder="voce@email.com" required />
+            <input name="email" type="email" placeholder="voce@email.com" required />
           </label>
 
           <label className="field">
             <span>Telefone:</span>
-            <input type="tel" placeholder="(99) 9999-9999" required />
+            <input name="telefone" type="tel" placeholder="(99) 9999-9999" required />
           </label>
 
           <label className="field">
             <span>Mensagem:</span>
-            <textarea rows="6" placeholder="Escreva sua mensagem aqui..." required></textarea>
+            <textarea
+              name="mensagem"
+              rows="6"
+              placeholder="Escreva sua mensagem aqui..."
+              required
+            ></textarea>
           </label>
 
           <button className="btn primary" type="submit">Enviar Mensagem</button>

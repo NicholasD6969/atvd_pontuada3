@@ -6,6 +6,7 @@ function Header() {
   return (
     <header className="header">
       <div className="header_wrap">
+        
         <Link to="/" className="brand">
           <img src={logo} alt="Logo Drogarias MG" />
           <span>Drogarias MG</span>
@@ -17,6 +18,7 @@ function Header() {
           <Link to="/sobre-nos">Sobre Nós</Link>
           <Link to="/fale-conosco">Fale Conosco</Link>
         </nav>
+
       </div>
     </header>
   );

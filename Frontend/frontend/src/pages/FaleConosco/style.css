@@ -14,55 +14,87 @@
   margin-bottom: 40px;
 }
 
-.form-contato {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 500px;
-  margin: 0 auto 50px;
+/* Grade do formulário */
+.form .grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.form-contato input,
-.form-contato textarea {
+.field {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+/* Labels */
+.field span {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #004aad;
+}
+
+/* Inputs e Textarea */
+.field input,
+.field textarea {
   padding: 12px 15px;
   border: 1px solid #cdd9f2;
   border-radius: 8px;
   font-size: 1rem;
   font-family: 'Poppins', sans-serif;
   transition: border-color 0.3s ease;
+  resize: none;
 }
 
-.form-contato input:focus,
-.form-contato textarea:focus {
+.field input:focus,
+.field textarea:focus {
   border-color: #004aad;
   outline: none;
 }
 
-.form-contato button {
+/* Botão principal */
+.btn.primary {
   background-color: #004aad;
   color: #fff;
   border: none;
-  padding: 12px 20px;
+  padding: 14px 22px;
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.3s ease;
+  width: fit-content;
+  justify-self: start;
 }
 
-.form-contato button:hover {
+.btn.primary:hover {
   background-color: #003a87;
 }
 
-.info {
-  text-align: center;
+/* Ajuste do botão ocupando a linha inteira quando necessário */
+.grid button {
+  grid-column: span 3;
+  justify-self: center;
 }
 
-.info h3 {
-  color: #008f6b;
-  margin-bottom: 10px;
+/* Responsivo */
+@media (max-width: 900px) {
+  .form .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .grid button {
+    grid-column: span 2;
+  }
 }
 
-.info p {
-  margin: 5px 0;
-  color: #333;
+@media (max-width: 600px) {
+  .form .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid button {
+    grid-column: span 1;
+  }
 }

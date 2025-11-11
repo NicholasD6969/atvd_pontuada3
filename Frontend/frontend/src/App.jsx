@@ -5,7 +5,6 @@ import Home from './pages/Home'
 import Servicos from './pages/Servicos'
 import SobreNos from './pages/SobreNos'
 import FaleConosco from './pages/FaleConosco'
-import ListarClientes from './pages/ListarClientes';
 import './App.css'
 
 function App() {
@@ -19,7 +18,6 @@ function App() {
           <Route path='/servicos' element={<Servicos/>}/>
           <Route path='/sobre-nos' element={<SobreNos/>}/>
           <Route path='fale-conosco' element={<FaleConosco/>}/>
-          <Route path='/lista-clientes' element={<ListarClientes/>}/>
         </Routes>
       </main>
       <Footer/>
