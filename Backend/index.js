@@ -8,13 +8,11 @@ app.use(express.json());
 
 const port = 3000;
 
-// Conexão com o MySQL
 const sequelize = new Sequelize('db_atvd_3', 'root', '', {
   host: 'localhost',
   dialect: 'mysql',
 });
 
-// Modelo Cliente (será usado para Fale Conosco também)
 const Cliente = sequelize.define('Cliente', {
   id: {
     type: DataTypes.INTEGER,
@@ -40,18 +38,15 @@ const Cliente = sequelize.define('Cliente', {
   },
 });
 
-// Rota principal
 app.get('/', (req, res) => {
   res.send('🚀API está funcionando🚀');
 });
 
-// Lista todos os registros
 app.get('/Clientes', async (req, res) => {
   const Clientes = await Cliente.findAll();
   res.json(Clientes);
 });
 
-// Cadastra um cliente manualmente (rota antiga)
 app.post('/Clientes', async (req, res) => {
   try {
     const { nome, email, telefone, mensagem } = req.body;
@@ -74,7 +69,6 @@ app.post('/Clientes', async (req, res) => {
   }
 });
 
-// ✅ ROTA NOVA PARA O FORMULÁRIO FALE CONOSCO
 app.post('/api/fale-conosco', async (req, res) => {
   try {
     const { nome, email, telefone, mensagem } = req.body;
@@ -97,7 +91,6 @@ app.post('/api/fale-conosco', async (req, res) => {
   }
 });
 
-// Sincroniza e inicia o servidor
 sequelize
   .sync()
   .then(() => {
